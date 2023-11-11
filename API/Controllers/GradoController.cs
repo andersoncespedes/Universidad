@@ -85,14 +85,14 @@ public class GradoController : BaseApiController
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<List<GradoWithCountDto>>>GetCountAssign(){
-        var dato = _unitOfWork.Grados.GradosWithCountAssign();
+        var dato = await _unitOfWork.Grados.GradosWithCountAssign();
         return _map.Map<List<GradoWithCountDto>>(dato);
     }
     [HttpGet("GetCountOfAsignWithMoreThan40")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<List<GradoWithCountDto>>>GetCountAssignWithMoreThan40(){
-        var dato = _unitOfWork.Grados.GradosWithCountAssignWithMoreThan40();
+        var dato = await _unitOfWork.Grados.GradosWithCountAssignWithMoreThan40();
         return _map.Map<List<GradoWithCountDto>>(dato);
     }
 }
