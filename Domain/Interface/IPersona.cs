@@ -14,5 +14,5 @@ public interface IPersona : IGenericRepository<Persona>
     Task<IEnumerable<Persona>> GetByNif();
     Task<int> GetCountGirlStudents();
     Task<int> GetCountMillen();
-    
+    Task<Persona> GetYoungest();
 }

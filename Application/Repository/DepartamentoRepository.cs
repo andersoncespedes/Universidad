@@ -40,4 +40,16 @@ public class DepartamentoRepository : GenericRepository<Departamento>, IDepartam
             .OrderByDescending(e => e.Profesores.Count())
             .ToListAsync();
     }
+    public async Task<IEnumerable<Departamento>> GetDepWithNoProf(){
+        return await _context.Set<Departamento>()
+            .Include(e => e.Profesores)
+            .Where(e => e.Profesores.Count() == 0)
+            .ToListAsync();
+    }
+    public async Task<IEnumerable<Departamento>> GetDepWithNoAssign(){
+        return await _context.Set<Departamento>()
+            .Include(e => e.Profesores)
+            .Where(e => e.Profesores.Select(e => e.Asignaturas.Count()).Sum() == 0)
+            .ToListAsync();
+    }
 }

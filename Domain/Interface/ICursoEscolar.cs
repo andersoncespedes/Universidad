@@ -8,4 +8,5 @@ namespace Domain.Interface;
 public interface ICursoEscolar : IGenericRepository<CursoEscolar>
 {
     Task<IEnumerable<Persona>> GetStudentsDate();
+    Task<IEnumerable<CursoEscolar>> GetStudentsDateAndCount();
 }

@@ -19,4 +19,9 @@ public class CursoEscolarRepository : GenericRepository<CursoEscolar>, ICursoEsc
             .SelectMany(e => e.Personas)
             .ToListAsync();
     }
+    public async Task<IEnumerable<CursoEscolar>> GetStudentsDateAndCount(){
+        return await _context.Set<CursoEscolar>()
+            .Include(e => e.Personas)
+            .ToListAsync();
+    }
 }

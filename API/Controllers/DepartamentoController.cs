@@ -117,4 +117,21 @@ public class DepartamentoController : BaseApiController
         var dato = await _unitOfWork.Departamentos.GetCountWithProfAll();
         return _map.Map<List<CountByDepDto>>(dato);
     }
+    [HttpGet("GetWithNoProf")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+     public async Task<ActionResult<IEnumerable<DepartamentoDto>>> GetWithNoProf()
+    {
+        var dato = await _unitOfWork.Departamentos.GetDepWithNoProf();
+        return _map.Map<List<DepartamentoDto>>(dato);
+    }
+    [HttpGet("GetWithNoAssign")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+     public async Task<ActionResult<IEnumerable<DepartamentoDto>>> GetWithNoAssign()
+    {
+        var dato = await _unitOfWork.Departamentos.GetDepWithNoAssign();
+        return _map.Map<List<DepartamentoDto>>(dato);
+    }
+    
 }

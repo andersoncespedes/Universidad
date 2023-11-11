@@ -53,4 +53,29 @@ public class ProfesorRepository : GenericRepository<Profesor>, IProfesor
             .Select(e => e.ProfesorP)
             .ToListAsync();
     }
+    public async Task<IEnumerable<Profesor>> GetWithAsignaturesCount()
+    {
+        return await _context.Set<Profesor>()
+            .Include(e => e.Asignaturas)
+            .Include(e => e.ProfesorP)
+            .OrderByDescending(e => e.Asignaturas.Count())
+            .ToListAsync();
+    }
+    public async Task<IEnumerable<Profesor>> GetProfWithoutDeps()
+    {
+        return await _context.Set<Profesor>()
+            .Include(e => e.Departamento)
+            .Include(e => e.ProfesorP)
+            .Where(e => e.Departamento == null)
+            .ToListAsync();
+    }
+    public async Task<IEnumerable<Profesor>> ProfWithDepButNoAsign()
+    {
+        return await _context.Set<Profesor>()
+            .Include(e => e.Departamento)
+            .Include(e => e.ProfesorP)
+            .Include(e => e.Asignaturas)
+            .Where(e => e.Departamento != null && e.Asignaturas.Count() == 0)
+            .ToListAsync();
+    }
 }

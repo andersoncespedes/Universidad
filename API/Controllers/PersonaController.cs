@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using API.Dtos;
 using API.Helpers;
 using Domain.Entities;
-using API.Dtos;
 namespace API.Controllers;
 public class PersonaController : BaseApiController
 {
@@ -155,6 +154,14 @@ public class PersonaController : BaseApiController
         var datos = await _unitOfWork.Personas.GetCountMillen();
         return Ok(new ToTalStudentsDto
         {Count = datos});
+    }
+    [HttpGet("GetYoungestStudent")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<PersonaDto>> GetYoungestStuden()
+    {
+        var datos = await _unitOfWork.Personas.GetYoungest();
+        return _map.Map<PersonaDto>(datos);
     }
 
 }

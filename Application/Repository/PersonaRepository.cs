@@ -50,4 +50,10 @@ public class PersonaRepository : GenericRepository<Persona>, IPersona
             .Where(e => e.Tipo == Tipo.alumno && e.FechaNacimiento.Year == 1999)
             .CountAsync();
     }
+    public async Task<Persona> GetYoungest(){
+        return await _context.Set<Persona>()
+        .Where(e => e.Tipo == Tipo.alumno)
+        .OrderByDescending(e => e.FechaNacimiento)
+        .FirstAsync();
+    }
 }

@@ -80,4 +80,11 @@ public class CursoEscolarController : BaseApiController
         var datos = await _unitOfWork.CursoEscolares.GetStudentsDate();
         return _map.Map<List<PersonaDto>>(datos);
     }
+    [HttpGet("GetWithStudentsCount")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<PersonaDto>>> GetStudentsCount(){
+        var datos = await _unitOfWork.CursoEscolares.GetStudentsDateAndCount();
+        return _map.Map<List<PersonaDto>>(datos);
+    }
 }

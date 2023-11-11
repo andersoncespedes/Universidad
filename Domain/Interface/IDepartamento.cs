@@ -11,4 +11,6 @@ public interface IDepartamento : IGenericRepository<Departamento>
     Task<IEnumerable<Departamento>> GetWithAsignWithNoCourse();
     Task<IEnumerable<Departamento>> GetCountWithProf();
     Task<IEnumerable<Departamento>> GetCountWithProfAll();
+    Task<IEnumerable<Departamento>> GetDepWithNoProf();
+    Task<IEnumerable<Departamento>> GetDepWithNoAssign();
 }

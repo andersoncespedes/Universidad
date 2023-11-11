@@ -8,6 +8,14 @@ public class MappingProfile : Profile
 {
     public MappingProfile(){
         CreateMap<CursoEscolar, CursoEscolarDto>().ReverseMap();
+        CreateMap<CursoEscolar, CursoWithCountAlumn>()
+        .ForMember(e => e.AnyoEscolar, opt => opt.MapFrom(e => e.AnyoFin))
+        .ForMember(e => e.CountEstudiantes, opt => opt.MapFrom(e => e.Personas.Count()))
+        .ReverseMap();
+
+        CreateMap<Profesor, ProfesiorWithCountAssingnDto>()
+        .ForMember(e => e.Asignaturas, opt => opt.MapFrom(e => e.Asignaturas.Count()))
+        .ReverseMap();
 
         CreateMap<Departamento, DepartamentoDto>().ReverseMap();
         CreateMap<Grado, GradoWithCountDto>()
