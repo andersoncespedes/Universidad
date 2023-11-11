@@ -10,5 +10,5 @@ public interface IAsignatura : IGenericRepository<Asignatura>
     Task<IEnumerable<Asignatura>> GetFirstCuatrimestre();
     Task<IEnumerable<Persona>> GetByAlumnsGirlsThatMatIng();
     Task<IEnumerable<Asignatura>> GetByGrado();
-    
+    Task<IEnumerable<Asignatura>> GetAsignWithoutProf();
 }

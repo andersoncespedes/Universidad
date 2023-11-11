@@ -15,14 +15,18 @@ public class MappingProfile : Profile
         CreateMap<Asignatura, AsignaturaDto>()
         .ForMember(e => e.Profesor, opt => opt.MapFrom(e => e.Profesor.ProfesorP.Nombre))
         .ReverseMap();
-
+        CreateMap<Departamento, CountByDepDto>()
+        .ForMember(e => e.Count, opt => opt.MapFrom(e => e.Profesores.Count()))
+        .ReverseMap();
         CreateMap<Profesor, ProfesoresWithDptDto>()
         .ForMember(e => e.Nombre, opt => opt.MapFrom(e => e.ProfesorP.Nombre))
         .ForMember(e => e.Apellido1, opt => opt.MapFrom(e => e.ProfesorP.Apellido1))
         .ForMember(e => e.Apellido2, opt => opt.MapFrom(e => e.ProfesorP.Apellido2))
         .ForMember(e => e.Departamento, opt => opt.MapFrom(e => e.Departamento.Nombre))
         .ReverseMap();
-        
+        CreateMap<Departamento, DepartamentWithAsignWithNoCourseDto>()
+        .ForMember(e => e.AsignaturasSinCurso, opt => opt.MapFrom(e => e.Profesores.SelectMany(e => e.Asignaturas)))
+        .ReverseMap();
         CreateMap<Persona, AsignaturaByStudentDto>()
         .ReverseMap();
     }

@@ -8,4 +8,7 @@ namespace Domain.Interface;
 public interface IProfesor : IGenericRepository<Profesor>
 {
     Task<IEnumerable<Profesor>> GetWithDept();
+    Task<IEnumerable<Profesor>> GetAllWithDept();
+    Task<(IEnumerable<Profesor> profesors, IEnumerable<Departamento> departamentos)> GetWithNoDept();
+    Task<IEnumerable<Persona>> GetWithNoAsignatures();
 }

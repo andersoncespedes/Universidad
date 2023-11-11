@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using API.Dtos;
 using API.Helpers;
 using Domain.Entities;
+using API.Dtos;
 namespace API.Controllers;
 public class PersonaController : BaseApiController
 {
@@ -84,9 +85,9 @@ public class PersonaController : BaseApiController
     [HttpGet("ListaOrd")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<IEnumerable<PersonaDto>>> ListSort()
+    public ActionResult<IEnumerable<PersonaDto>>  ListSort()
     {
-        var dato =  _unitOfWork.Personas.AllSort();
+        var dato = _unitOfWork.Personas.AllSort();
         if (dato == null)
         {
             return BadRequest();
@@ -96,9 +97,9 @@ public class PersonaController : BaseApiController
     [HttpGet("AllButNull")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<IEnumerable<PersonaDto>>> AllButNull()
+    public ActionResult<IEnumerable<PersonaDto>> AllButNull()
     {
-        var dato =  _unitOfWork.Personas.AllButNotNull();
+        var dato = _unitOfWork.Personas.AllButNotNull();
         if (dato == null)
         {
             return BadRequest();
@@ -108,9 +109,9 @@ public class PersonaController : BaseApiController
     [HttpGet("GetByBirth")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<IEnumerable<PersonaDto>>> GetByBirth()
+    public ActionResult<IEnumerable<PersonaDto>> GetByBirth()
     {
-        var dato =  _unitOfWork.Personas.GetBeforeTwoThounsend();
+        var dato = _unitOfWork.Personas.GetBeforeTwoThounsend();
         if (dato == null)
         {
             return BadRequest();
@@ -122,7 +123,7 @@ public class PersonaController : BaseApiController
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public ActionResult<IEnumerable<PersonaDto>> AllButNullWithK()
     {
-        var dato =  _unitOfWork.Personas.AllButNotNullWithK();
+        var dato = _unitOfWork.Personas.AllButNotNullWithK();
         if (dato == null)
         {
             return BadRequest();
@@ -132,9 +133,28 @@ public class PersonaController : BaseApiController
     [HttpGet("GetByNif")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<IEnumerable<AsignaturaByStudentDto>>> GetByNif(){
+    public async Task<ActionResult<IEnumerable<AsignaturaByStudentDto>>> GetByNif()
+    {
         var datos = await _unitOfWork.Personas.GetByNif();
         return _map.Map<List<AsignaturaByStudentDto>>(datos);
+    }
+    [HttpGet("GetCountByGirlStudent")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<ToTalStudentsDto>> GetWithCount()
+    {
+        var datos = await _unitOfWork.Personas.GetCountGirlStudents();
+        return Ok(new ToTalStudentsDto
+        {Count = datos});
+    }
+    [HttpGet("GetCount1999")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<ToTalStudentsDto>> GetCountMillenials()
+    {
+        var datos = await _unitOfWork.Personas.GetCountMillen();
+        return Ok(new ToTalStudentsDto
+        {Count = datos});
     }
 
 }

@@ -7,5 +7,5 @@ using Domain.Entities;
 namespace Domain.Interface;
 public interface ICursoEscolar : IGenericRepository<CursoEscolar>
 {
-
+    Task<IEnumerable<Persona>> GetStudentsDate();
 }

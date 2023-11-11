@@ -8,4 +8,7 @@ namespace Domain.Interface;
 public interface IDepartamento : IGenericRepository<Departamento>
 {
     Task<IEnumerable<Departamento>> GetWithProfWhoDoesHaveAsign();
+    Task<IEnumerable<Departamento>> GetWithAsignWithNoCourse();
+    Task<IEnumerable<Departamento>> GetCountWithProf();
+    Task<IEnumerable<Departamento>> GetCountWithProfAll();
 }

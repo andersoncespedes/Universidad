@@ -34,5 +34,11 @@ public class AsignaturaRepository : GenericRepository<Asignatura>, IAsignatura
             .Where(e => e.Grado.Nombre == "Grado en Ingeniería Informática (Plan 2015)")
             .ToListAsync();
     }
+    public async Task<IEnumerable<Asignatura>> GetAsignWithoutProf(){
+        return await _context.Set<Asignatura>()
+            .Include(e => e.Profesor)
+            .Where(e => e.Profesor == null)
+            .ToListAsync();
+    }
     
 }

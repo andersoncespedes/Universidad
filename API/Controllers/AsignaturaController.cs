@@ -103,5 +103,11 @@ public class AsignaturaController : BaseApiController
         var datos = await _unitOfWork.Asignaturas.GetByGrado();
         return _map.Map<List<AsignaturaDto>>(datos);
     }
-    
+    [HttpGet("GetWithoutProf")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<AsignaturaDto>>> GetWithoutProf(){
+        var datos =  await _unitOfWork.Asignaturas.GetAsignWithoutProf();
+        return _map.Map<List<AsignaturaDto>>(datos);
+    }
 }

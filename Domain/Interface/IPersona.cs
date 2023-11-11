@@ -12,4 +12,7 @@ public interface IPersona : IGenericRepository<Persona>
     IEnumerable<Persona> GetBeforeTwoThounsend();
     IEnumerable<Persona> AllButNotNullWithK();
     Task<IEnumerable<Persona>> GetByNif();
+    Task<int> GetCountGirlStudents();
+    Task<int> GetCountMillen();
+    
 }

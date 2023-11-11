@@ -40,5 +40,14 @@ public class PersonaRepository : GenericRepository<Persona>, IPersona
             .Where(e => e.Nif == "26902806M")
             .ToListAsync();
     }
-    
+    public async Task<int> GetCountGirlStudents(){
+        return await _context.Set<Persona>()
+            .Where(e => e.Tipo == Tipo.alumno && e.Sexo == Sexo.H)
+            .CountAsync();
+    }
+    public async Task<int> GetCountMillen(){
+        return await _context.Set<Persona>()
+            .Where(e => e.Tipo == Tipo.alumno && e.FechaNacimiento.Year == 1999)
+            .CountAsync();
+    }
 }

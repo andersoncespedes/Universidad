@@ -19,4 +19,25 @@ public class DepartamentoRepository : GenericRepository<Departamento>, IDepartam
             .Where(e => e.Grado.Nombre == "Grado en Ingeniería Informática (Plan 2015)").Any())
             .ToListAsync();
     }
+    public async Task<IEnumerable<Departamento>> GetWithAsignWithNoCourse(){
+        return await _context.Set<Departamento>()
+            .Include(e => e.Profesores)
+            .ThenInclude(e => e.Asignaturas.Where(e => e.Personas.Count() == 0))
+            .ThenInclude(e => e.Personas.Where(e => e.Tipo == Tipo.alumno))
+            .ToListAsync();
+    }
+    public async Task<IEnumerable<Departamento>> GetCountWithProf(){
+        return await _context.Set<Departamento>()
+            .Include(e => e.Profesores)
+            .Where(e => e.Profesores.Count() > 0)
+            .OrderByDescending(e => e.Profesores.Count())
+            .ToListAsync();
+    }
+    public async Task<IEnumerable<Departamento>> GetCountWithProfAll(){
+        return await _context.Set<Departamento>()
+            .Include(e => e.Profesores)
+
+            .OrderByDescending(e => e.Profesores.Count())
+            .ToListAsync();
+    }
 }

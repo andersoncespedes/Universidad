@@ -1,3 +1,4 @@
+using System.Net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -91,5 +92,29 @@ public class DepartamentoController : BaseApiController
     {
         var dato = await _unitOfWork.Departamentos.GetWithProfWhoDoesHaveAsign();
         return _map.Map<List<DepartamentoDto>>(dato);
+    }
+    [HttpGet("DepWithNoAssign")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<DepartamentWithAsignWithNoCourseDto>>> DepWithNoAssign()
+    {
+        var dato = await _unitOfWork.Departamentos.GetWithAsignWithNoCourse();
+        return _map.Map<List<DepartamentWithAsignWithNoCourseDto>>(dato);
+    }
+    [HttpGet("GetCountByDep")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<CountByDepDto>>> GetWithCountByDep()
+    {
+        var dato = await _unitOfWork.Departamentos.GetCountWithProf();
+        return _map.Map<List<CountByDepDto>>(dato);
+    }
+    [HttpGet("GetCountByDepAll")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+     public async Task<ActionResult<IEnumerable<CountByDepDto>>> GetWithCountByDepAll()
+    {
+        var dato = await _unitOfWork.Departamentos.ge();
+        return _map.Map<List<CountByDepDto>>(dato);
     }
 }

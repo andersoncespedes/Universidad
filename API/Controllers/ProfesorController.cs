@@ -88,4 +88,28 @@ public class ProfesorController : BaseApiController
         var datos = await _unitOfWork.Profesores.GetWithDept();
         return _map.Map<List<ProfesoresWithDptDto>>(datos);
     }
+    [HttpGet("GetWithDepts")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<ProfesoresWithDptDto>>> GetWithDepts()
+    {
+        var datos = await _unitOfWork.Profesores.GetAllWithDept();
+        return _map.Map<List<ProfesoresWithDptDto>>(datos);
+    }
+    [HttpGet("GetWithNoDepts")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<(IEnumerable<object>, IEnumerable<object>)>> GetWithNoDepts()
+    {
+        var datos = await _unitOfWork.Profesores.GetWithNoDept();
+        return datos;
+    }
+    [HttpGet("GetWithNoAsignatures")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<PersonaDto>>> GetWithNoAsign()
+    {
+        var datos = await _unitOfWork.Profesores.GetWithNoAsignatures();
+        return _map.Map<List<PersonaDto>>(datos);
+    }
 }

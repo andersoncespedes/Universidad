@@ -73,5 +73,11 @@ public class CursoEscolarController : BaseApiController
 
         return param;
     }
-
+    [HttpGet("GetWithStudents")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<PersonaDto>>> GetStudentsDate(){
+        var datos = await _unitOfWork.CursoEscolares.GetStudentsDate();
+        return _map.Map<List<PersonaDto>>(datos);
+    }
 }
