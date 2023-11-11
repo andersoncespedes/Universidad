@@ -81,5 +81,11 @@ public class GradoController : BaseApiController
 
         return param;
     }
-    
+    [HttpGet("GetCountOfAsign")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<GradoWithCountDto>> GetCountAssign(){
+        var dato = _unitOfWork.Grados.ds
+    }
 }
+

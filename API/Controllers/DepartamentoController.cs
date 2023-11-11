@@ -114,7 +114,7 @@ public class DepartamentoController : BaseApiController
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
      public async Task<ActionResult<IEnumerable<CountByDepDto>>> GetWithCountByDepAll()
     {
-        var dato = await _unitOfWork.Departamentos.ge();
+        var dato = await _unitOfWork.Departamentos.GetCountWithProfAll();
         return _map.Map<List<CountByDepDto>>(dato);
     }
 }

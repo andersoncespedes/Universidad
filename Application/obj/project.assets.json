@@ -706,19 +706,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\APOLT01\\.nuget\\packages\\": {}
+    "C:\\Users\\janus\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\APOLT01\\Desktop\\Prueba_Universidad\\Application\\Application.csproj",
+      "projectUniqueName": "c:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\APOLT01\\Desktop\\Prueba_Universidad\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\APOLT01\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\APOLT01\\Desktop\\Prueba_Universidad\\Application\\obj\\",
+      "projectPath": "c:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\janus\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\janus\\Desktop\\Universidad\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\APOLT01\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\janus\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -730,11 +730,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\APOLT01\\Desktop\\Prueba_Universidad\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\APOLT01\\Desktop\\Prueba_Universidad\\Domain\\Domain.csproj"
+            "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj": {
+              "projectPath": "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\APOLT01\\Desktop\\Prueba_Universidad\\Persistence\\Persistence.csproj": {
-              "projectPath": "C:\\Users\\APOLT01\\Desktop\\Prueba_Universidad\\Persistence\\Persistence.csproj"
+            "c:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj": {
+              "projectPath": "c:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj"
             }
           }
         }
@@ -770,7 +770,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.310\\RuntimeIdentifierGraph.json"
       }
     }
   }
