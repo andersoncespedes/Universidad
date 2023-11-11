@@ -10,7 +10,8 @@ public class Asignatura : BaseEntity
     public float Creditos {get; set;}
     public enum Tipo {
         básica,
-        Obligatoria
+        Obligatoria,
+        Optativa
     }
     public Tipo Tipos {get; set;}
     public int Curso {get; set;}

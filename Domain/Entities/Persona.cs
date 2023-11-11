@@ -14,8 +14,8 @@ public class Persona : BaseEntity
     public string Ciudad { get; set; }
     public string Telefono { get; set; }
     public DateOnly FechaNacimiento { get; set; }
-    public Tipo Tipo { get; set; }
     public Sexo Sexo { get; set; }
+    public Tipo Tipo { get; set; }
     public ICollection<Profesor> Profesores { get; set; }
     public ICollection<AlumnoSeMatriculaAsignatura> AlumnoSeMatriculaAsignaturas { get; set; }
     public ICollection<Asignatura> Asignaturas { get; set; }

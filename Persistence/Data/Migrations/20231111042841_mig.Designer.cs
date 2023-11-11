@@ -11,8 +11,8 @@ using Persistence.Data;
 namespace Persistence.Data.Migrations
 {
     [DbContext(typeof(APIContext))]
-    [Migration("20231110234246_mig2")]
-    partial class mig2
+    [Migration("20231111042841_mig")]
+    partial class mig
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -113,15 +113,14 @@ namespace Persistence.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("id");
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("AnyoFin")
-                        .HasColumnType("datetime(6)")
+                    b.Property<short>("AnyoFin")
+                        .HasColumnType("year")
                         .HasColumnName("anyo_fin");
 
-                    b.Property<DateTime>("AnyoInicio")
-                        .HasColumnType("datetime(6)")
+                    b.Property<short>("AnyoInicio")
+                        .HasColumnType("year")
                         .HasColumnName("anyo_inicio");
 
                     b.HasKey("Id");

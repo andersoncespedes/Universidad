@@ -19,14 +19,14 @@ namespace Persistence.Data.Migrations
                 name: "curso_escolar",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    anyo_inicio = table.Column<DateOnly>(type: "date", nullable: false),
-                    anyo_fin = table.Column<DateOnly>(type: "date", nullable: false)
+                    anyo_inicio = table.Column<short>(type: "year", nullable: false),
+                    anyo_fin = table.Column<short>(type: "year", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_curso_escolar", x => x.id);
+                    table.PrimaryKey("PK_curso_escolar", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -81,9 +81,9 @@ namespace Persistence.Data.Migrations
                     telefono = table.Column<string>(type: "varchar(9)", maxLength: 9, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     fecha_nacimiento = table.Column<DateOnly>(type: "date", nullable: false),
-                    tipo = table.Column<string>(type: "varchar(15)", unicode: false, maxLength: 15, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
                     sexo = table.Column<string>(type: "varchar(15)", unicode: false, maxLength: 15, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    tipo = table.Column<string>(type: "varchar(15)", unicode: false, maxLength: 15, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -132,7 +132,7 @@ namespace Persistence.Data.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     curso = table.Column<sbyte>(type: "tinyint", nullable: false),
                     cuatrimestre = table.Column<sbyte>(type: "tinyint", nullable: false),
-                    IdProfesorFk = table.Column<int>(type: "int", nullable: false),
+                    IdProfesorFk = table.Column<int>(type: "int", nullable: true),
                     IdGradoFk = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -148,8 +148,7 @@ namespace Persistence.Data.Migrations
                         name: "FK_asignatura_profesor_IdProfesorFk",
                         column: x => x.IdProfesorFk,
                         principalTable: "profesor",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -174,7 +173,7 @@ namespace Persistence.Data.Migrations
                         name: "FK_alumno_se_matricula_asignatura_curso_escolar_id_curso_escolar",
                         column: x => x.id_curso_escolar,
                         principalTable: "curso_escolar",
-                        principalColumn: "id",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_alumno_se_matricula_asignatura_persona_id_alumno",
@@ -205,7 +204,7 @@ namespace Persistence.Data.Migrations
                         name: "FK_AsignaturaCursoEscolar_curso_escolar_CursoEscolaresId",
                         column: x => x.CursoEscolaresId,
                         principalTable: "curso_escolar",
-                        principalColumn: "id",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
