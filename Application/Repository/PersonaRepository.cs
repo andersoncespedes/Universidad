@@ -22,11 +22,11 @@ public class PersonaRepository : GenericRepository<Persona>, IPersona
     }
     public IEnumerable<Persona> AllButNotNull(){
         return _context.Set<Persona>()
-            .Where(e => e.Telefono != null);
+            .Where(e => e.Telefono != null && e.Tipo == Tipo.alumno);
     }
     public IEnumerable<Persona> AllButNotNullWithK(){
         return _context.Set<Persona>()
-            .Where(e => e.Telefono != null && e.Nif.EndsWith("K"));
+            .Where(e => e.Telefono != null && e.Nif.EndsWith("K") && e.Tipo == Tipo.profesor);
     }
     public IEnumerable<Persona> GetBeforeTwoThounsend(){
         return _context.Set<Persona>()

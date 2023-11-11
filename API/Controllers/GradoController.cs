@@ -95,5 +95,12 @@ public class GradoController : BaseApiController
         var dato = await _unitOfWork.Grados.GradosWithCountAssignWithMoreThan40();
         return _map.Map<List<GradoWithCountDto>>(dato);
     }
+    [HttpGet("GetBySumCredits")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<List<GradoWithSumDto>>>GetCountAssignWithMoreThan40(){
+        var dato = await _unitOfWork.Grados.GradosWithAssignWithCredits();
+        return _map.Map<List<GradoWithSumDto>>(dato);
+    }
 }
 
