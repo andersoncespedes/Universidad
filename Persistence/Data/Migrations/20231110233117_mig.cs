@@ -78,7 +78,7 @@ namespace Persistence.Data.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ciudad = table.Column<string>(type: "varchar(25)", maxLength: 25, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    telefono = table.Column<string>(type: "varchar(9)", maxLength: 9, nullable: false)
+                    telefono = table.Column<string>(type: "varchar(9)", maxLength: 9, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     fecha_nacimiento = table.Column<DateOnly>(type: "date", nullable: false),
                     tipo = table.Column<string>(type: "varchar(15)", unicode: false, maxLength: 15, nullable: false)
@@ -96,14 +96,14 @@ namespace Persistence.Data.Migrations
                 name: "profesor",
                 columns: table => new
                 {
-                    id_profesor = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    ProfesorPId = table.Column<int>(type: "int", nullable: true),
+                    id_profesor = table.Column<int>(type: "int", nullable: false),
                     id_departamento = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_profesor", x => x.id_profesor);
+                    table.PrimaryKey("PK_profesor", x => x.Id);
                     table.ForeignKey(
                         name: "FK_profesor_departamento_id_departamento",
                         column: x => x.id_departamento,
@@ -111,10 +111,11 @@ namespace Persistence.Data.Migrations
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_profesor_persona_ProfesorPId",
-                        column: x => x.ProfesorPId,
+                        name: "FK_profesor_persona_id_profesor",
+                        column: x => x.id_profesor,
                         principalTable: "persona",
-                        principalColumn: "id");
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -147,7 +148,7 @@ namespace Persistence.Data.Migrations
                         name: "FK_asignatura_profesor_IdProfesorFk",
                         column: x => x.IdProfesorFk,
                         principalTable: "profesor",
-                        principalColumn: "id_profesor",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
@@ -252,9 +253,9 @@ namespace Persistence.Data.Migrations
                 column: "id_departamento");
 
             migrationBuilder.CreateIndex(
-                name: "IX_profesor_ProfesorPId",
+                name: "IX_profesor_id_profesor",
                 table: "profesor",
-                column: "ProfesorPId");
+                column: "id_profesor");
         }
 
         /// <inheritdoc />

@@ -12,7 +12,7 @@ public class ProfesorConfiguration : IEntityTypeConfiguration<Profesor>
     public void Configure(EntityTypeBuilder<Profesor> builder)
     {
         builder.ToTable("profesor");
-        builder.HasKey(e => e.IdProfesorFk);
+        
         builder.Property(e => e.IdProfesorFk)
         .HasColumnName("id_profesor");
 
@@ -22,5 +22,9 @@ public class ProfesorConfiguration : IEntityTypeConfiguration<Profesor>
         builder.HasOne(e => e.Departamento)
         .WithMany(e => e.Profesores)
         .HasForeignKey(e => e.IdDepartamento);
+
+        builder.HasOne(e => e.ProfesorP)
+        .WithMany(e => e.Profesores)
+        .HasForeignKey(e => e.IdProfesorFk);
     }
 }

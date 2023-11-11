@@ -15,7 +15,7 @@ public class Asignatura : BaseEntity
     public Tipo Tipos {get; set;}
     public int Curso {get; set;}
     public int Cuatrimestre {get; set;}
-    public int IdProfesorFk {get; set;}
+    public int? IdProfesorFk {get; set;}
     public Profesor Profesor {get; set;}
     public int IdGradoFk {get; set;}
     public Grado Grado {get; set;}

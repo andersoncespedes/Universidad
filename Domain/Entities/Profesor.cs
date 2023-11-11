@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Domain.Entities;
-public class Profesor
+public class Profesor : BaseEntity
 {
     public int IdProfesorFk {get; set;}
     public Persona ProfesorP {get; set;}

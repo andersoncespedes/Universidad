@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Data;
 
@@ -10,9 +11,11 @@ using Persistence.Data;
 namespace Persistence.Data.Migrations
 {
     [DbContext(typeof(APIContext))]
-    partial class APIContextModelSnapshot : ModelSnapshot
+    [Migration("20231110233117_mig")]
+    partial class mig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,7 +83,7 @@ namespace Persistence.Data.Migrations
                     b.Property<int>("IdGradoFk")
                         .HasColumnType("int");
 
-                    b.Property<int?>("IdProfesorFk")
+                    b.Property<int>("IdProfesorFk")
                         .HasColumnType("int");
 
                     b.Property<string>("Nombre")
@@ -110,14 +113,15 @@ namespace Persistence.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
-                    b.Property<short>("AnyoFin")
-                        .HasColumnType("year")
+                    b.Property<DateOnly>("AnyoFin")
+                        .HasColumnType("date")
                         .HasColumnName("anyo_fin");
 
-                    b.Property<short>("AnyoInicio")
-                        .HasColumnType("year")
+                    b.Property<DateOnly>("AnyoInicio")
+                        .HasColumnType("date")
                         .HasColumnName("anyo_inicio");
 
                     b.HasKey("Id");
@@ -315,7 +319,9 @@ namespace Persistence.Data.Migrations
 
                     b.HasOne("Domain.Entities.Profesor", "Profesor")
                         .WithMany("Asignaturas")
-                        .HasForeignKey("IdProfesorFk");
+                        .HasForeignKey("IdProfesorFk")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Grado");
 

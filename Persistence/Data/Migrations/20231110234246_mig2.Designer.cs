@@ -11,8 +11,8 @@ using Persistence.Data;
 namespace Persistence.Data.Migrations
 {
     [DbContext(typeof(APIContext))]
-    [Migration("20231110220941_mig")]
-    partial class mig
+    [Migration("20231110234246_mig2")]
+    partial class mig2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -83,7 +83,7 @@ namespace Persistence.Data.Migrations
                     b.Property<int>("IdGradoFk")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdProfesorFk")
+                    b.Property<int?>("IdProfesorFk")
                         .HasColumnType("int");
 
                     b.Property<string>("Nombre")
@@ -116,12 +116,12 @@ namespace Persistence.Data.Migrations
                         .HasColumnType("int")
                         .HasColumnName("id");
 
-                    b.Property<DateOnly>("AnyoFin")
-                        .HasColumnType("date")
+                    b.Property<DateTime>("AnyoFin")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("anyo_fin");
 
-                    b.Property<DateOnly>("AnyoInicio")
-                        .HasColumnType("date")
+                    b.Property<DateTime>("AnyoInicio")
+                        .HasColumnType("datetime(6)")
                         .HasColumnName("anyo_inicio");
 
                     b.HasKey("Id");
@@ -221,7 +221,6 @@ namespace Persistence.Data.Migrations
                         .HasAnnotation("EnumDisplayFormat", "{0}");
 
                     b.Property<string>("Telefono")
-                        .IsRequired()
                         .HasMaxLength(9)
                         .HasColumnType("varchar(9)")
                         .HasColumnName("telefono");
@@ -247,23 +246,23 @@ namespace Persistence.Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.Profesor", b =>
                 {
-                    b.Property<int>("IdProfesorFk")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("id_profesor");
+                        .HasColumnType("int");
 
                     b.Property<int>("IdDepartamento")
                         .HasColumnType("int")
                         .HasColumnName("id_departamento");
 
-                    b.Property<int?>("ProfesorPId")
-                        .HasColumnType("int");
+                    b.Property<int>("IdProfesorFk")
+                        .HasColumnType("int")
+                        .HasColumnName("id_profesor");
 
-                    b.HasKey("IdProfesorFk");
+                    b.HasKey("Id");
 
                     b.HasIndex("IdDepartamento");
 
-                    b.HasIndex("ProfesorPId");
+                    b.HasIndex("IdProfesorFk");
 
                     b.ToTable("profesor", (string)null);
                 });
@@ -320,9 +319,7 @@ namespace Persistence.Data.Migrations
 
                     b.HasOne("Domain.Entities.Profesor", "Profesor")
                         .WithMany("Asignaturas")
-                        .HasForeignKey("IdProfesorFk")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdProfesorFk");
 
                     b.Navigation("Grado");
 
@@ -339,7 +336,9 @@ namespace Persistence.Data.Migrations
 
                     b.HasOne("Domain.Entities.Persona", "ProfesorP")
                         .WithMany("Profesores")
-                        .HasForeignKey("ProfesorPId");
+                        .HasForeignKey("IdProfesorFk")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Departamento");
 
