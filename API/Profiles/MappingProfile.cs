@@ -8,7 +8,11 @@ public class MappingProfile : Profile
 {
     public MappingProfile(){
         CreateMap<CursoEscolar, CursoEscolarDto>().ReverseMap();
+
         CreateMap<Departamento, DepartamentoDto>().ReverseMap();
+        CreateMap<Grado, GradoWithCountDto>()
+        .ForMember(e => e.Count, opt => opt.MapFrom(e => e.Asignaturas.Count()))
+        .ReverseMap();
         CreateMap<Grado, GradoDto>().ReverseMap();
         CreateMap<Profesor,ProfesorDto>().ReverseMap();
         CreateMap<Persona,PersonaDto>().ReverseMap();
@@ -28,6 +32,12 @@ public class MappingProfile : Profile
         .ForMember(e => e.AsignaturasSinCurso, opt => opt.MapFrom(e => e.Profesores.SelectMany(e => e.Asignaturas)))
         .ReverseMap();
         CreateMap<Persona, AsignaturaByStudentDto>()
+        .ReverseMap();
+
+        CreateMap<Grado, GradoWithSumDto>()
+        .ForMember(e => e.NombreGrado, opt => opt.MapFrom(e => e.Nombre))
+        .ForMember(e => e.TipoAsignatura, opt => opt.MapFrom(e => e.Asignaturas.Select(e => e.Creditos).Sum()))
+        .ForMember(e => e.TipoAsignatura, opt => opt.MapFrom(e => e.Asignaturas.Select(e => e.Tipos)))
         .ReverseMap();
     }
 }

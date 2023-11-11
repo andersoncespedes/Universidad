@@ -27,8 +27,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "c:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj": {
-                "projectPath": "c:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj"
+              "C:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj"
               }
             }
           }
@@ -109,14 +109,14 @@
         }
       }
     },
-    "c:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj": {
+    "C:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "c:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\janus\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\janus\\Desktop\\Universidad\\Application\\obj\\",
+        "outputPath": "C:\\Users\\janus\\Desktop\\Universidad\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\janus\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -131,11 +131,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj": {
-                "projectPath": "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj"
+              "C:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj"
               },
-              "c:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj": {
-                "projectPath": "c:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj"
+              "C:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -175,14 +175,14 @@
         }
       }
     },
-    "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj": {
+    "C:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\janus\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\janus\\Desktop\\Universidad\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\janus\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -228,14 +228,14 @@
         }
       }
     },
-    "c:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "c:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj",
+        "projectPath": "C:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\janus\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\janus\\Desktop\\Universidad\\Persistence\\obj\\",
+        "outputPath": "C:\\Users\\janus\\Desktop\\Universidad\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\janus\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -250,8 +250,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj": {
-                "projectPath": "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj"
+              "C:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj"
               }
             }
           }

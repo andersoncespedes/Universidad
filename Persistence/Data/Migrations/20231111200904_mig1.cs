@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Persistence.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class mig : Migration
+    public partial class mig1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -99,7 +99,7 @@ namespace Persistence.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     id_profesor = table.Column<int>(type: "int", nullable: false),
-                    id_departamento = table.Column<int>(type: "int", nullable: false)
+                    id_departamento = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -108,8 +108,7 @@ namespace Persistence.Data.Migrations
                         name: "FK_profesor_departamento_id_departamento",
                         column: x => x.id_departamento,
                         principalTable: "departamento",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "id");
                     table.ForeignKey(
                         name: "FK_profesor_persona_id_profesor",
                         column: x => x.id_profesor,

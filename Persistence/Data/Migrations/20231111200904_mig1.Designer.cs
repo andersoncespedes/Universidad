@@ -11,8 +11,8 @@ using Persistence.Data;
 namespace Persistence.Data.Migrations
 {
     [DbContext(typeof(APIContext))]
-    [Migration("20231111042841_mig")]
-    partial class mig
+    [Migration("20231111200904_mig1")]
+    partial class mig1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -249,7 +249,7 @@ namespace Persistence.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("IdDepartamento")
+                    b.Property<int?>("IdDepartamento")
                         .HasColumnType("int")
                         .HasColumnName("id_departamento");
 
@@ -329,9 +329,7 @@ namespace Persistence.Data.Migrations
                 {
                     b.HasOne("Domain.Entities.Departamento", "Departamento")
                         .WithMany("Profesores")
-                        .HasForeignKey("IdDepartamento")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdDepartamento");
 
                     b.HasOne("Domain.Entities.Persona", "ProfesorP")
                         .WithMany("Profesores")

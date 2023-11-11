@@ -1888,8 +1888,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "c:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj": {
-              "projectPath": "c:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj"
+            "C:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\janus\\Desktop\\Universidad\\Application\\Application.csproj"
             }
           }
         }

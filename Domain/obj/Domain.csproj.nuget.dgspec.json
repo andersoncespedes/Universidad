@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj": {}
+    "C:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj": {
+    "C:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\janus\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\janus\\Desktop\\Universidad\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\janus\\AppData\\Roaming\\NuGet\\NuGet.Config"

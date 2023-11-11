@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4RcV0tiIwPAwhY7tYvmpZPjDhu7Qsx0hFMGeM7pwgWJjyShLqy1EcdRcARr91ZK2BQM1VDbQgHKpCbtLuokuVQ==",
+  "dgSpecHash": "FM0v71IZafaDwhhbvVdk+cqfULrh9EpgpnfGj/8pvXYF0GUXQnb9CVj9evP2Vmq8onva17y0H0VNKkQeZkNKwg==",
   "success": true,
-  "projectFilePath": "c:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj",
+  "projectFilePath": "C:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\janus\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.13\\microsoft.entityframeworkcore.7.0.13.nupkg.sha512",
     "C:\\Users\\janus\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.13\\microsoft.entityframeworkcore.abstractions.7.0.13.nupkg.sha512",

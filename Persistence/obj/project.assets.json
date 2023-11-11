@@ -691,11 +691,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj",
+      "projectUniqueName": "C:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj",
       "projectName": "Persistence",
-      "projectPath": "c:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj",
+      "projectPath": "C:\\Users\\janus\\Desktop\\Universidad\\Persistence\\Persistence.csproj",
       "packagesPath": "C:\\Users\\janus\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\janus\\Desktop\\Universidad\\Persistence\\obj\\",
+      "outputPath": "C:\\Users\\janus\\Desktop\\Universidad\\Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\janus\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -710,8 +710,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj": {
-              "projectPath": "c:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj"
+            "C:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\janus\\Desktop\\Universidad\\Domain\\Domain.csproj"
             }
           }
         }
