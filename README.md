@@ -176,11 +176,11 @@
 30. Devuelve un listado con las asignaturas que no tienen un profesor asignado.
 
      ```
-       http://localhost:5095/api/departamento/GetWithNoAssign
+       http://localhost:5095/api/asignatura/GetWithoutProf
      ```
 
 31. Devuelve un listado con todos los departamentos que no han impartido asignaturas en ningún curso escolar.
 
      ```
-       # Consulta Aqui
+       http://localhost:5095/api/departamento/GetWithNoAssign
      ```
